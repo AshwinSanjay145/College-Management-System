@@ -1,0 +1,35 @@
+{% extends 's_loghome.html' %}
+
+{% block title %}
+{{cr.semaster}} {{cr.firstname}}
+{% endblock %}
+
+{% block content%}
+<div class="box1">
+<div class="msg">
+  {% for msg in messages %}
+  <div class="alert alert-warning alert-dismissible fade show color" role="alert">
+    <strong>HELLO {{cr.firstname}}</strong> {{msg}}
+    <button type="button"  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}   
+</div>
+</div>
+<div class="wrapper">
+    <div class="user-card">
+        <div class="user-card-img">
+          <img src="{{cr.image.url}}" alt="">
+        </div>
+        <div class="user-card-info">
+          <h2>{{cr.firstname}} {{cr.lastname}}</h2>
+          <p><span>Semester</span> {{cr.semaster}}</p>
+          <p><span>Department:</span> {{cr.department}}</p>
+          <p><span>Register Number :</span> {{cr.reg_no}}</p>
+          <p><span>Email:</span>{{cr.email}}</p>
+          <p><span>Phone:</span>{{cr.guardian_phone}}</p>
+          
+          
+        </div>
+  </div>
+
+{% endblock %}

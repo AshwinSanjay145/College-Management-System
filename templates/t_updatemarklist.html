@@ -1,0 +1,57 @@
+{% extends 't_loghome.html' %}
+{% block title%}
+Update mark {{cr.subject}}
+{% endblock %}
+
+{% block content %}
+<div class="box4">
+          <div class="">
+
+            
+            
+              <form method="POST" enctype="multipart/form-data" class="form-control">
+                <div class="head">
+                  <h5>Enter Mark</h5>
+                </div>
+                {%csrf_token%} 
+                {{form.as_p}}
+                <div class="b1">
+                <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+          </div>
+</div>
+
+<style>
+  .box4{
+        
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        max-width: 300px;
+        width: 100%;
+      }
+      .head{
+        text-align: center;
+        margin-top: 5%;
+      }
+
+      .b1{
+        
+        text-align: center;
+      }
+</style>
+{%endblock%}
+    
+   
+    
+      
+
+
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+{% extends 't_loghome.html' %}
+{% block title %}
+Student leaves 
+{% endblock %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/tstyle.css' %}">
+
+{%block content%}
+          <div class="box1">
+
+              <div class="msg">
+                  {% for msg in messages %}
+                  <div class="alert alert-warning alert-dismissible fade show color" role="alert">
+                    <strong>HELLO {{cr.firstname}} {{cr.subject}}</strong> {{msg}}
+                    <button type="button"  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                  {% endfor %}   
+              </div>  
+                  <div>
+                    <label for="">Name : {{cr.firstname}} {{cr.lastname}}</label><br><br>
+                    <label for="">days : {{cr.days}}</label><br><br>
+                    <label for="">From : {{cr.fromdate}} To : {{cr.todate}}</label><br><br>
+                    <label for="">Reason : {{cr.reason}}</label><br><br>
+                    <label for="">Descripition : {{cr.desp}}</label><br>
+                  </div>
+                    <br><br>
+                  <a href="{% url 't_leave' %}" class="btn btn-primary">Back</a>
+          </div>
+ 
+          
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 's_loghome.html' %}
+{% block title %}
+{{cr.firstname}} Marklist
+{% endblock %}
+
+{% block content %}
+<div class="box2">
+
+  <div class="msg">
+    {% for msg in messages %}
+    <div class="alert alert-warning alert-dismissible fade show color" role="alert">
+      <strong>HELLO {{cr.firstname}}</strong> {{msg}}
+      <button type="button"  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}   
+  </div>  
+ 
+ <div class="box2">
+  <div class="form-control">
+
+ 
+          <form method="post"   enctype="multipart/form-data">
+            <div class="head">
+              <h4>Work Upload</h4>
+            </div>
+            {% csrf_token %}
+            
+            
+
+            
+              {{ form.as_p }}
+            
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+  </div>
+</div>
+</div>
+
+<style>
+
+body{
+  background: #E4E9F7 !important;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100%;
+}
+.head{
+  text-align: center;
+}
+ .box2{
+  position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        max-width: 350px;
+        width: 100%;
+  
+}
+</style>
+{% endblock %}

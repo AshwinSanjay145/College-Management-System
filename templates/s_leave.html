@@ -1,0 +1,107 @@
+{% extends 's_loghome.html' %}
+
+{% block title %}
+Leave {{cr.firstname}}
+{% endblock %}
+
+{% block content %}
+
+      <div class="box3">
+          <div class="form-control">
+
+            <div class="msg">
+              {% for msg in messages %}
+              <div class="alert alert-warning alert-dismissible fade show color" role="alert">
+                <strong>HELLO {{cr.firstname}}</strong> {{msg}}
+                <button type="button"  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              {% endfor %}   
+              </div>  
+              
+              <form class="row g-2" method="POST" action="/s_add_leave">
+                <div class="head">
+                  <h4>Leave application</h4>
+                </div>
+                  
+                  {%csrf_token%} 
+                      <div class="col-md-6">
+                      <label  class="form-label">Firstname :</label>
+                      <input class="form-control" type="text" name="fname" value="{{cr.firstname}}" readonly="readonly"  >
+                      </div>
+                      <div class="col-md-6">
+                          <label  class="form-label">lastname :</label>&nbsp;
+                          <input type="text" class="form-control" id="exampleInputPassword1" name="lname" value="{{cr.lastname}}" readonly="readonly" >
+                      </div>
+      
+                      <div class="col-md-6">
+                      <label  class="form-label">department :</label>&nbsp;
+                      <input type="text" class="form-control" id="exampleInputPassword1" name="dept" value="{{cr.department}}" readonly="readonly">
+                    </div>
+                    <div class="col-md-6">
+                        <label  class="form-label">Semseter :</label>&nbsp;
+                        <input type="text" class="form-control" id="exampleInputPassword1" name="sem" value="{{cr.semaster}}" readonly="readonly">
+                    </div>
+
+                    <div class="col-md-6">
+                      <label  class="form-label">from :</label>&nbsp;
+                      <input type="date" class="form-control" id="exampleInputPassword1" name="fdate">
+                    </div>
+
+                    <div class="col-md-6">
+                      <label  class="form-label">To :</label>&nbsp;
+                      <input type="date" class="form-control" id="exampleInputPassword1" name="tdate">
+                    </div>
+
+                    <div class="col-md-6">
+                      <label  class="form-label">Days :</label>&nbsp;
+                      <input type="number" class="form-control" id="exampleInputPassword1" name="day">
+                    </div>
+      
+                    <div class="col-md-6">
+                      <label  class="form-label">Reason :</label>&nbsp;
+                      <input type="text" class="form-control" id="exampleInputPassword1" name="reason">
+                    </div>
+                    <div class="col-md-12">
+                      <label  class="form-label">Description :</label>&nbsp;
+                      <div class="form-floating">
+                        <textarea class="form-control" name="desp" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Comments</label>
+                      </div>
+                    </div>
+                    
+                    
+                  
+                 
+                      <div class="col-12">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
+                </form>
+                
+          </div>
+      </div>
+  
+    
+   
+    
+
+<style>
+    
+    .box3{
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: none;
+  padding-bottom: 5%;
+  
+}
+
+.head{
+  margin-left: 34%;
+  margin-top: 2%;
+}
+
+.btn{
+  margin-left: 43.8% !important;
+}
+</style>
+
+{% endblock %}

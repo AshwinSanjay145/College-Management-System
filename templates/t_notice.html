@@ -1,0 +1,93 @@
+{% extends 't_loghome.html' %}
+{% block title %}
+Notice
+{% endblock %}
+
+{% block content %}
+
+
+<div class="box4">
+<div class="form-control">
+  <div class="msg">
+    {% for msg in messages %}
+    <div class="alert alert-warning alert-dismissible fade show color" role="alert">
+      <strong></strong> {{msg}}
+      <button type="button"  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}   
+  </div>  
+  
+  <form method="POST" action="/t_notice" class="row g-3 align-items-center" >
+    {%csrf_token%} 
+    <div class="head">
+      <h5>Notice</h5>
+    </div>
+    <div class="col-6" >
+      <label for="exampleInputEmail1" class="form-label">Todays Date</label>
+      <input type="text" class="form-control" value={{date}} aria-describedby="emailHelp" readonly="readonly" name="d1">
+      
+    </div>
+    <div class="col-6">
+      <label for="exampleInputPassword1" class="form-label">Todays Time</label>
+      <input type="time"  class="form-control" id="exampleInputPassword1" value={{time}} readonly="readonly" name="t1">
+    </div>
+
+    <div class="col-md-2">
+        <label for="exampleInputEmail1" class="form-label">Last Date</label>
+        <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="d2">
+        
+      </div>
+
+      <div class="col-md-2">
+        <label for="exampleInputEmail1" class="form-label">Time</label>
+        <input type="time" class="form-control" id="" aria-describedby="emailHelp" name="time" >
+        
+      </div>
+
+    <div class="col-md-2">
+        <label for="exampleInputPassword1" class="form-label">Semester</label>
+        <select class="form-select" name="sem">
+            <option selected>All</option>
+            <option value="S1">S1</option>
+            <option value="S2">S2</option>
+        </select>
+    </div>
+    <div class="col-12">
+        <label for="exampleInputPassword1" class="form-label">Enter Notice content</label>
+        <div class="form-floating">
+        
+            <textarea class="form-control" placeholder="Enter Notice content"  style="height: 200px" name="notice"></textarea>
+        
+        </div>
+    </div>
+    <div class="col-md-3">
+        
+        <div class="mb-3">
+            <br><button type="submit" class="btn btn-primary">Submit</button> 
+        </div>
+    </div>
+   
+  </form>
+
+</div>
+</div>
+<style>
+  .box4{
+        
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        max-width: 700px;
+        width: 100%;
+      }
+      .head{
+        text-align: center;
+        margin-top: 5%;
+      }
+</style>
+
+
+
+{% endblock %}
+

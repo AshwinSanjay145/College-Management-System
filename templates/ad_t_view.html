@@ -1,0 +1,72 @@
+{% extends 'ad_loghome.html' %}
+{% block title %}
+Admin teacher view
+{%endblock%}
+
+{% block content %}
+
+<div class="table-form">
+  {% for msg in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong></strong> {{msg}}
+              <button type="button"  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          {% endfor %}
+  
+   <div class="form-control">
+   <table class="table table-bordered">
+    <div class="head">
+        <h5>Teachers Profiles</h5>
+      </div>
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Firstname</th>
+        <th scope="col">Lastname</th>
+        <th scope="col">ID_No</th>
+        <th scope="col">Subject</th>
+        <th scope="col">Photo</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in pr %}
+
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.firstname }}</td>
+            <td> {{ i.lastname }}</td>
+            <td> {{ i.id_no }}</td>
+            <td> {{ i.subject }}</td>
+            <td class="image"><img src="{{i.image.url}}" class="card-img-top" alt="docphoto"></td>
+            <td><a href="{% url 's_delete' i.id %}" class="btn btn-primary">Remove</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+</div>
+<style>
+
+
+    .table-form{
+        background: #fff;
+        height: auto !important;
+        width: auto !important;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 5%;
+    }
+
+    .head{
+        text-align: center;
+        
+        margin-bottom: 2%;
+    }
+    .card-img-top{
+        width: 50px !important;
+    }
+   
+</style>
+
+{%endblock%}

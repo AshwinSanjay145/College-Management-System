@@ -1,0 +1,77 @@
+{% extends 'ad_loghome.html' %}
+{% block title %}
+Admin add student
+{%endblock%}
+
+{% block content %}
+    <div class="container-fluid" >
+      
+        <form method="POST" enctype="multipart/form-data" >
+          {% for msg in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong></strong> {{msg}}
+              <button type="button"  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          {% endfor %}
+            <h4 class="text-center">Add Student</h4>
+            {%csrf_token%} <!--security-->
+            {{form.as_p}} <!--fetching-->
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        
+
+
+    </div>
+    
+    
+ 
+
+  
+   
+
+  <style>
+      
+    body{
+            background-image: url("https://wallpapers.com/images/featured/data-center-775ta0o0wf4nbyq3.jpg") !important;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            font-family: 'Poppins', sans-serif;
+
+        }
+    .color{
+    background-color: rgba(73, 71, 206, 0.568);
+    border: none;
+    border-radius: 10px;
+  }
+  .heading{
+    color: aliceblue;
+    margin-left: 35%;
+  }
+
+  .cont{
+    color: aliceblue;
+  }
+
+  .msg{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 10%;
+  }
+
+ 
+       
+        form{
+            border-radius: 20px;
+            margin-top: 50px !important;
+            margin-left: 25%;
+            width: 50% !important;
+            background-color: white !important;
+            padding: 50px;
+        }
+        
+
+  </style>
+
+{%endblock%}

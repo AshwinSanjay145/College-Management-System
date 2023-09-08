@@ -1,0 +1,25 @@
+{% extends 't_loghome.html' %}
+{% load static%}
+
+{% block title %}
+{{cr.firstname}} {{cr.subject}}
+{% endblock %}
+{% block content %}
+<div class="wrapper">
+  <div class="user-card">
+      <div class="user-card-img">
+        <img src="{{cr.image.url}}" alt="">
+      </div>
+      <div class="user-card-info">
+        <h2>{{cr.firstname}} {{cr.lastname}}</h2>
+        <p><span>Subject:</span> {{cr.subject}}</p>
+        <p><span>Department:</span> {{cr.department}}</p>
+        <p><span>ID :</span> {{cr.id_no}}</p>
+        <p><span>Email:</span>{{cr.email}}</p>
+        <p><span>Phone:</span>{{cr.contact_no}}</p>
+        
+        
+      </div>
+</div>
+
+{% endblock %}

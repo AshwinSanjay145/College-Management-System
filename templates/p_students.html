@@ -1,0 +1,195 @@
+{% extends 'p_loghome.html' %}
+
+{% block title %}
+Serach Students
+{% endblock %}
+
+{% block content %}
+
+
+<div class="wrapper">
+  <div class="user-card">
+      <div class="user-card-img">
+        <img src="{{cr.image.url}}" alt="">
+      </div>
+      <div class="user-card-info">
+        <h2>{{cr.firstname}} {{cr.lastname}}</h2>
+        <p><span>Deparment:</span>{{cr.department}}</p>
+        <p><span>Semester:</span>{{cr.semaster}}</p>
+        <p><span>Place:</span> {{cr.place}}</p>
+        <p><span>Contact No:</span> {{cr.guardian_phone}}</p>
+        <p><span>Email:</span> {{cr.email}}</p>
+      </div>
+  </div>
+</div>
+
+<div class="form-control">
+  <div class="head1">
+    <h4>Reports</h4>
+  </div>
+<table class="table table-bordered table table-hover">
+  <div class="head2">
+    <h6>Mark list Semester 1</h6>
+  </div>
+  <tr>
+      
+      <th>Name</th>
+      <th>Physics</th>
+      <th>Chemistry</th>
+      <th>Mathematics</th>
+      <th>Electronics</th>
+      <th>graphics</th>
+      
+      
+      
+  </tr>
+  {% for i in m1 %}
+      <tr>
+          
+          <td>{{ i.firstname }} {{ i.lastname }}</td>
+          <td> {{ i.physics }}</td>
+          <td> {{ i.chemistry }}</td>
+          <td> {{ i.mathematics }}</td>
+          <td> {{ i.electronics }}</td>
+          <td> {{ i.graphics }}</td>
+
+          
+      </tr>
+  {% endfor %}
+
+
+
+
+
+  <table class="table table-bordered table table-hover">
+    <div class="head">
+      <h6>Assignment Semester 1</h6>
+    </div>
+    <tr>
+        
+        <th>Name</th>
+        <th>Department</th>
+        <th>Semester</th>
+        <th>Date of submission</th>
+        <th>Format</th>
+        <th>File</th>
+        <th>Submission</th>
+        
+        
+    </tr>
+    {% for i in ass %}
+        <tr>
+            
+            <td>{{ i.name }}</td>
+            <td> {{ i.department }}</td>
+            <td> {{ i.semester }}</td>
+            <td> {{ i.upload_date }}</td>
+            <td> {{ i.filetype }}</td>
+            <td> <a href="{{ i.file.url }}" download>{{ i.file }}</a></td>
+            <td> {{ i.status }}</td>
+            
+
+            
+            
+            
+            
+        </tr>
+    {% endfor %}
+
+    <table class="table table-bordered table table-hover">
+      <div class="head">
+        <h6>Homework Semester 1</h6>
+      </div>
+      <tr>
+          
+          <th>Name</th>
+          <th>Department</th>
+          <th>Semester</th>
+          <th>Date of submission</th>
+          <th>Format</th>
+          <th>File</th>
+          <th>Submission</th>
+          
+          
+      </tr>
+      {% for i in hw %}
+          <tr>
+              
+              <td>{{ i.name }}</td>
+              <td> {{ i.department }}</td>
+              <td> {{ i.semester }}</td>
+              <td> {{ i.upload_date }}</td>
+              <td> {{ i.filetype }}</td>
+              <td> <a href="{{ i.file.url }}" download>{{ i.file }}</a></td>
+              <td> {{ i.status }}</td>
+   
+              
+          </tr>
+      {% endfor %}
+
+      <table class="table table-bordered table-hover">
+        <div class="head">
+          <h6>Leaves</h6>
+        </div>
+        <thead>
+          <tr>
+            
+            <th scope="col">Name</th>
+            <th scope="col">From</th>
+            <th scope="col">Till</th>
+            <th scope="col">Days</th>
+            <th scope="col">Reason</th>
+            <th scope="col">Description</th>
+            
+            
+          </tr>
+        </thead>
+        <tbody>
+            {% for i in lv %}
+            <tr>
+                
+                <td>{{ i.firstname }} {{ i.lastname }}</td>
+                <td>{{ i.fromdate }} </td>
+                <td>{{ i.todate }} </td>
+                <td>{{ i.days }} </td>
+                <td>{{ i.reason }} </td>
+                <td>{{ i.desp }} </td>
+                
+                
+            </tr>
+        {% endfor %}
+        </tbody>
+      </table>  
+  
+</div>
+
+<style>
+
+  body{
+    background: #E4E9F7 !important;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+  }
+  .head2{
+    text-align: left;
+    margin-bottom: 2%;
+   
+ }
+
+.head1{
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 2%;
+   }
+
+   .head{
+    text-align: left;
+    margin-bottom: 2%;
+    margin-top: 4%;
+   
+ }
+  </style>
+{%endblock%}

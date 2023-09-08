@@ -1,0 +1,48 @@
+{% extends 'p_loghome.html' %}
+{% block title %}
+Change Email
+{% endblock %}
+
+{% block content %}
+
+<div class="box4">
+<div class="form-control">
+  <div class="msg">
+    {% for msg in messages %}
+    <div class="alert alert-warning alert-dismissible fade show color" role="alert">
+      <strong></strong> {{msg}}
+      <button type="button"  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}   
+  </div>  
+    <form method="POST" enctype="multipart/form-data">
+        <div class="head">
+            <h5>Change Email</h5>
+          </div>
+      {%csrf_token%} <!--security-->
+      {{form.as_p}} <!--fetching-->
+      <button type="submit" class="btn btn-primary">SUBMIT</button>
+    </form>
+</div>
+</div>
+<style>
+  .box4{
+        
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        max-width: 350px;
+        width: 100%;
+      }
+      .head{
+        text-align: center;
+        margin-top: 2%;
+      }
+    
+      .btn{
+        margin-left: 30%;
+    
+      }
+</style>
+{%endblock%}

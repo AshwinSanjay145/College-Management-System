@@ -1,0 +1,63 @@
+{% extends 's_loghome.html' %}
+
+{% block title %}
+{{cr.semaster}} Notifications
+{% endblock %}
+
+{% block content %}
+
+<div class="box1">
+
+        <div class="msg">
+              {% for msg in messages %}
+              <div class="alert alert-warning alert-dismissible fade show color" role="alert">
+                <strong>HELLO {{cr.firstname}}</strong> {{msg}}
+                <button type="button"  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              {% endfor %}   
+              </div>  
+            <div class="form-control">
+              <table class="table table-bordered table table-hover">
+                <div class="head">
+                  <h4>Notifications</h4>
+                </div>
+                <tr>
+                    
+                    <th>Published Date</th>
+                    <th>Published Time</th>
+                    <th>For</th>
+                    <th>last date</th>
+                    <th>time</th>
+                    <th>Notice</th>
+                    
+                    
+                    
+                </tr>
+                {% for i in msg %}
+                    <tr>
+                        
+                        <td>{{ i.todaydate }}</td>
+                        <td> {{ i.todaytime }}</td>
+                        <td> {{ i.session }}</td>
+                        <td> {{ i.lastdate }}</td>
+                        <td> {{ i.time }}</td>
+                        <td> {{ i.content }}</td>
+                    </tr>
+                {% endfor %}
+
+            </div>
+</div>
+<style>
+.box1{
+    margin-left: 7%;
+    margin-right: 7%;
+}
+.head{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 42%;
+}
+
+</style>
+
+{%endblock%}

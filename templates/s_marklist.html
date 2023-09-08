@@ -1,0 +1,83 @@
+{% extends 's_loghome.html' %}
+{% block title %}
+{{cr.firstname}} Marklist
+{% endblock %}
+
+{% block content %}
+
+<div class="box1">
+
+  <div class="msg">
+    {% for msg in messages %}
+    <div class="alert alert-warning alert-dismissible fade show color" role="alert">
+      <strong>HELLO {{cr.firstname}}</strong> {{msg}}
+      <button type="button"  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}   
+    </div>  
+
+    <div class="form-control">
+    <table class="table table-bordered">
+      <div class="head">
+        <h4>Results</h4>
+      </div>
+      <thead>
+        <tr>
+          <th scope="col">Subject</th>
+          <th scope="col">Mark</th>
+          <th scope="col">Result</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Physics</th>
+          <td>{{pr.physics}}</td>
+          <td>{{pr.p_res}}</td>
+          
+        </tr>
+        <tr>
+          <th scope="row">Chemistry</th>
+          <td>{{pr.chemistry}}</td>
+          <td>{{pr.c_res}}</td>
+          
+        </tr>
+        <tr>
+          <th scope="row">Mathematics</th>
+          <td>{{pr.mathematics}}</td>
+          <td>{{pr.m_res}}</td>
+          
+        </tr>
+
+        <tr>
+          <th scope="row">Electronics</th>
+          <td>{{pr.electronics}}</td>
+          <td>{{pr.e_res}}</td>
+          
+        </tr>
+
+        <tr>
+          <th scope="row">Graphics</th>
+          <td>{{pr.graphics}}</td>
+          <td>{{pr.g_res}}</td>
+          
+        </tr>
+        
+        
+      </tbody>
+    </table>
+  </div>   
+</div>
+<style>
+  .box1{
+      margin-left: 7%;
+      margin-right: 7%;
+  }
+  .head{
+      margin-top: 1%;
+      margin-bottom: 1%;
+      margin-left: 42%;
+  }
+  
+  </style>
+{% endblock %}

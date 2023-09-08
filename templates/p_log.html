@@ -1,0 +1,32 @@
+{% extends 'p_loghome.html' %}
+
+{% block title %}
+{{cr.firstname}} Prinicpal 
+{% endblock %}
+
+{% block content %}
+<div class="msg">
+  {% for msg in messages %}
+  <div class="alert alert-warning alert-dismissible fade show color" role="alert">
+    <strong>HELLO {{cr.firstname}}</strong> {{msg}}
+    <button type="button"  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}   
+  </div>
+<div class="wrapper">
+  <div class="user-card">
+      <div class="user-card-img">
+        <img src="{{cr.image.url}}" alt="">
+      </div>
+      <div class="user-card-info">
+        <h2>{{cr.firstname}} {{cr.lastname}}</h2>
+        <p><span>Designation:</span>Prinicpal</p>
+        <p><span>ID No:</span>{{cr.id_no}}</p>
+
+        <p><span>Contact No:</span> {{cr.contact_no}}</p>
+        <p><span>Email:</span> {{cr.email}}</p>
+      </div>
+  </div>
+</div>
+
+{%endblock%}

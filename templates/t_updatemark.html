@@ -1,0 +1,73 @@
+{% extends 't_loghome.html' %}
+{% block title%}
+{{cr.subject}} Marklist
+{% endblock %}
+
+{% block content %}
+
+<div class="tablelist">
+                    <div class="msg">
+                      {% for msg in messages %}
+                          <div class="alert alert-warning alert-dismissible fade show color" role="alert">
+                            <strong></strong> {{msg}}
+                            <button type="button"  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div>
+                      {% endfor %}   
+                    </div>  
+            <form method="post">
+                {%csrf_token%} 
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        
+                        <th>Register Number</th>
+                        <th>Physics</th>
+                        <th>Chemistry</th>
+                        <th>Mathematics</th>
+                        <th>Electronics</th>
+                        <th>Graphics</th>
+                        <th>Action</th>
+                        
+                    </tr>
+                    {% for i in mr %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ i.firstname }} {{ i.lastname }}</td>
+                            
+                            <td> {{ i.reg_no }}</td>
+                            <td> {{ i.physics }}</td>
+                            <td> {{ i.chemistry }}</td>
+                            <td> {{ i.mathematics }}</td>
+                            <td> {{ i.electronics }}</td>
+                            <td> {{ i.graphics }}</td>
+
+                            <td><a href="{% url 't_m_updatelist' i.id %}" class="btn btn-primary">Update</a></td>
+                            
+                        </tr>
+                    {% endfor %}
+                  </table>
+          </form>  
+</div>
+<style>
+.tablelist{
+  margin-left: 10% !important;
+  margin-right: 10% !important;
+}
+
+.table{
+ background-color: whitesmoke!important;
+ border-radius: 10px;
+ box-shadow: 0 5px 10px rgba(0,0,0,0.3) ;
+}
+
+
+</style>
+
+{%endblock%}
+   
+
+
+    
+      
+

@@ -1,0 +1,108 @@
+{% extends 't_loghome.html' %}
+{% block title %}
+Assignment {{cr.subject}} 
+{% endblock %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/tstyle.css' %}">
+
+{%block content %}
+          <div class="box1">
+
+            <div class="msg">
+              {% for msg in messages %}
+              <div class="alert alert-warning alert-dismissible fade show color" role="alert">
+                <strong>HELLO </strong> {{msg}}
+                <button type="button"  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              {% endfor %}   
+              </div>  
+              
+             
+            <div class="form-control"> 
+
+              <table class="table table-bordered table table-hover">
+                <div class="head">
+                  <h6>Semester 1</h6>
+                </div>
+                <tr>
+                    
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Semester</th>
+                    <th>Date of submission</th>
+                    <th>Format</th>
+                    <th>File</th>
+                    <th>Submission</th>
+                    
+                    
+                </tr>
+                {% for i in s1 %}
+                    <tr>
+                        
+                        <td>{{ i.name }}</td>
+                        <td> {{ i.department }}</td>
+                        <td> {{ i.semester }}</td>
+                        <td> {{ i.upload_date }}</td>
+                        <td> {{ i.filetype }}</td>
+                        <td> <a href="{{ i.file.url }}" download>{{ i.file }}</a></td>
+                        <td> {{ i.status }}</td>
+                        
+
+                        
+                        
+                        <td><a href="{% url 't_w_status' i.id %}" class="btn btn-primary">Update</a></td>
+                        
+                    </tr>
+                {% endfor %}
+
+                
+
+                <table class="table table-bordered table table-hover">
+                  <div class="head">
+                    <h6>Semester 2</h6>
+                  </div>
+                  <tr>
+                      
+                      <th>Name</th>
+                      <th>Department</th>
+                      <th>Semester</th>
+                      <th>Date of submission</th>
+                      <th>Format</th>
+                      <th>File</th>
+                      <th>Submission</th>
+                      
+                      
+                  </tr>
+                  {% for i in s2 %}
+                      <tr>
+                          
+                          <td>{{ i.name }}</td>
+                          <td> {{ i.department }}</td>
+                          <td> {{ i.semester }}</td>
+                          <td> {{ i.upload_date }}</td>
+                          <td> {{ i.filetype }}</td>
+                          <td> <a href="{{ i.file.url }}" download>{{ i.file }}</a></td>
+                          <td> {{ i.status }}</td>
+                          
+  
+                          
+                          
+                          <td><a href="{% url 't_w_status' i.id %}" class="btn btn-primary">Update</a></td>
+                          
+                      </tr>
+                  {% endfor %}
+            </div>     
+        </div>
+
+<style>
+    
+    .box1{
+      margin-left: 7%;
+      margin-right: 7%;
+    }
+
+    
+</style>
+
+{%endblock%}
